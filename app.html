@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="app.css">
+    
+</head>
+<body>
+    <div class="outer">
+
+        <h2>Checkout</h2>
+
+        <button class="collapsible" id="col1">Personal Details</button>
+        <div class="content"  style="padding: 0 25px;">
+            <form action="#" onsubmit="return false">
+                <p>
+                    Aadhar Number <span style="color: red;">*</span>
+                    <input id="aadhar" type="number" required class="input1" style="-webkit-text-security: disc;" onblur="validateAadhar()" oninput="countDigits()">
+                    <span id="aadhar_digits" style="font-size: 14px;"></span><br>
+                </p>
+                <p>
+                   First Name <span style="color: red;">*</span>
+                    <input id="Fname" type="text" class="input1" required onblur="validateName('Fname')"> &nbsp; &nbsp;
+            
+                   Last Name <span style="color: red;">*</span>
+                    <input id="Lname" type="text" class="input1" required onblur="validateName('Lname')"><br>
+                </p>
+                <div id="message1" style="font-size: 14px; color: red"></div>
+                <div id="message2" style="font-size: 14px; color: red"></div>
+                <p>
+                    <button id="cont" onclick="continue1()">Continue</button>
+                </p>
+            </form>
+        </div>
+        <button class="collapsible" id="col2">Select Number</button>
+            <div class="content"  style="padding: 0 25px;">
+                    <form action="#" onsubmit="return false">
+                        <p>
+                        Select Type Of Number:&nbsp; &nbsp; 
+                        <input type="radio" id="vip" name="number_type" value="vip" onclick="selectNumbers('vip')">VIP &nbsp; &nbsp; 
+                        <input type="radio" id="Normal" name="number_type" value="normal" onclick="selectNumbers('normal')">Normal &nbsp; &nbsp; 
+                        </p>
+                        <p><select name="select_menu" id="select_menu" onchange="selectPrice()">
+                            <option>Select your Number</option>
+                        </select>
+                        &nbsp; &nbsp; 
+                        &#8377;<span id="price"></span>
+                    </p>
+                    <p><div id="message3" style="font-size: 14px; color: red"></div></p>
+                    <p>
+                        <button id="backbtn" onclick="back1()">Back</button>
+                        <button id="continuebtn" onclick="continue2()">Continue</button>
+                    </p>
+                      </form>
+            </div>
+        <button class="collapsible" id="col3">Declaration</button>
+            <div class="content">
+                <p>
+                    I, <u><span id="fullNameFinal"></span></u>, whose Aadhar Number is <u><span id="aadharNumberFinal" ></span></u>,
+                    agree to all terms and conditions to pay &#8377;<u><span id="priceFinal" ></span></u>.
+                </p>
+                <div>
+                    <canvas width="200" height="200" id="drawPlace" style="border:1px solid #000000"></canvas>
+                    <div>Sign here</div>
+                    <div style="color: black;">Press C to clear</div>
+                </div>
+                <p>
+                    <button id="back2" onclick="back2()">Back</button>
+                    <button id="submit" onclick="submit()">Submit</button>
+                </p>    
+            </div>
+
+            <p><div style="text-align: center; font-size: 20px;" id="final_message"></div></p>
+        
+
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
